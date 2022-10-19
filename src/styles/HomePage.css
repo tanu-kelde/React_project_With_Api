@@ -1,0 +1,115 @@
+*{
+    font-family: poppins;
+}
+
+.drop {
+  height: auto;
+  width: 50%;
+  margin-right: 200px;
+}
+
+.link {
+  margin-left: 28px;
+  color: #151515;
+  Width: 2.5px;
+}
+
+.price {
+  position: relative;
+  width: 35px;
+  height: 18px;
+  left: 0px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  text-decoration-line: line-through;
+  color: #a9a9a9;
+
+}
+
+.description {
+  width: 251px;
+  height: 16px;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #575757;
+
+}
+
+.title {
+  width: 251px;
+  height: 23px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  color: #151515;
+}
+.buyNow{
+  background-color: #6A983C;
+  border: 1px solid #6A983C;
+}
+.buyNow:hover{
+  background-color: #6A983C;
+  border: 1px solid #6A983C;
+}
+.h6{
+  font-weight: bold;
+}
+.heading{
+  font-weight:600;
+}
+.fifthContainerButton{
+   /* width: 100px;
+  height: 40px; */
+  position: relative;
+   left: 450px;
+}
+
+.para{
+   text-align: center;
+}
+.name{
+  color:#A9A9A9
+}
+.blogCard{
+  margin-top: 150px;
+  text-align: left;
+  
+}
+.descriptionlast{
+  margin-top: 28px;
+  font-weight: 600;
+}
+.paragraph{
+  margin-left: 16px;
+  font-size: 12px;
+}
+.paragraph2{
+  margin-left: 5px;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.vagetable{
+  color:#6A983C;
+  font-size: small;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.icons{
+   margin-left: 30px;
+  
+}
+.cardBody{
+  background-color: black;  
+  background-image: linear-gradient(white,black);
+}
+.footer{
+  font-size: 2px;
+}
