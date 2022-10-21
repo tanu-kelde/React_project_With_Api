@@ -8,6 +8,14 @@ import { BsSquare } from "react-icons/bs";
 import { propTypes } from "react-bootstrap/esm/Image";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import {
+  CDBSidebar,
+  CDBSidebarContent,
+  CDBSidebarFooter,
+  CDBSidebarHeader,
+  CDBSidebarMenu,
+  CDBSidebarMenuItem,
+} from "cdbreact";
 
 function HomePage() {
   const baseURL = "https://freshness12.herokuapp.com/user/userdata";
@@ -21,6 +29,7 @@ function HomePage() {
   const loadProducts = async () => {
     const result = await axios.get(baseURL);
     setPost(result.data);
+    console.log(result.data);
   };
 
   return (
@@ -82,7 +91,147 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container mt-5">
+      <div
+        style={{
+          display: "flex",
+          height: "90vh",
+          overflow: "scroll initial",
+          marginleft: "25px",
+        }}
+        className="mt-5 "
+      >
+        <CDBSidebar textColor="#fff" backgroundColor="white">
+          <CDBSidebarFooter style={{ textAlign: "center" }}>
+            <div
+              className="sidebar-btn-wrapper"
+              style={{
+                padding: "20px 5px",
+                color: "black",
+                textAlign: "center",
+              }}
+            >
+              <h6 className="h6">Best Selling Products</h6>
+            </div>
+
+            <div
+              style={{
+                color: "#6A983C",
+                textAlign: "start",
+                marginLeft: "80px",
+              }}
+            >
+              <u>
+                <a>Kitchen</a>
+              </u>
+              <br />
+              <u>
+                <a>Meat and fish</a>
+              </u>
+              <br />
+              <u>
+                <a>Special nutrision</a>
+              </u>
+              <br />
+              <u>
+                <a>Pharmacy</a>
+              </u>
+              <br />
+              <u>
+                <a>Baby</a>
+              </u>
+            </div>
+            <Button
+              variant="light"
+              style={{ border: " black" }}
+              className="mt-5 h6"
+            >
+              More Products <BsChevronRight />{" "}
+            </Button>
+
+            <h6 className="h6 mt-5">Bestfrom Farmers</h6>
+            <div
+              style={{
+                color: "#6A983C",
+                textAlign: "start",
+                marginLeft: "80px",
+              }}
+            >
+              <u>
+                <a>Carrots</a>
+              </u>
+              <br />
+              <u>
+                <a>Tometoes</a>
+              </u>
+              <br />
+              <u>
+                <a>Potetoes</a>
+              </u>
+              <br />
+              <u>
+                <a>Chicken</a>
+              </u>
+              <br />
+              <u>
+                <a>Pork</a>
+              </u>
+            </div>
+            <Button
+              variant="light"
+              style={{ border: " black" }}
+              className="mt-5 h6"
+            >
+              More Products <BsChevronRight />{" "}
+            </Button>
+          </CDBSidebarFooter>
+        </CDBSidebar>
+        {post.map((m) => (
+          <div key={m["_id"]} className="col-3">
+            <Card style={{ width: "15rem" }}>
+              <Card.Img variant="top" src={m?.image} />
+              <Card.Body>
+                <Card.Title className="title">{m?.title}</Card.Title>
+                <Card.Text className="description">{m?.discription}</Card.Text>
+                <Button variant="light" className="USDButton">
+                  {m?.price} USD
+                </Button>
+                <Button className="buyNow">Buy Now</Button>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
+        {/* <div className="col-3">
+          <Card style={{ width: "15rem" }}>
+            <Card.Img variant="top" src={stock} />
+            <Card.Body>
+              <Card.Title className="title">Product Title</Card.Title>
+              <Card.Text className="description">
+                Space for a small product description
+              </Card.Text>
+              <Button variant="light">0.28 USD </Button>
+              <Button className="buyNow">Buy Now</Button>
+              <p className="price">48.56</p>
+            </Card.Body>
+          </Card>
+        </div>
+        <div className="col-3">
+          <Card style={{ width: "15rem" }}>
+            <Card.Img variant="top" src={logo} />
+            <Card.Body>
+              <Card.Title className="title">Product Title</Card.Title>
+              <Card.Text className="description">
+                Space for a small product description
+              </Card.Text>
+              <Button variant="light">1.12 USD</Button>
+              <Button className="buyNow">Buy Now</Button>
+              <p className="price">48.56</p>
+            </Card.Body>
+          </Card>
+        </div>
+      */}
+      </div>
+
+      {/* <div className="container mt-5">
         <div className="row">
           <div className="col-3">
             <h6 className="h6">Best Selling Products</h6>
@@ -119,14 +268,14 @@ function HomePage() {
             post.map((m) => ( 
               <div key={m['_id']} className="col-3">
                   <Card style={{ width: "15rem" }}>
-                    <Card.Img variant="top" src={m?.Product_Image} />
+                    <Card.Img variant="top" src={m?.image} />
                     <Card.Body>
-                      <Card.Title className="title">{m?.Product_title}</Card.Title>
+                      <Card.Title className="title">{m?.title}</Card.Title>
                       <Card.Text className="description">
-                        {m?.Product_discription}
+                        {m?.discription}
                       </Card.Text>
                       <Button variant="light" className="USDButton">
-                        {m?.Product_price}
+                        {m?.price} USD
                       </Button>
                       <Button className="buyNow">Buy Now</Button>
                     </Card.Body>
@@ -135,8 +284,8 @@ function HomePage() {
             ))
           }
         </div>
-      </div>
-      <div className="container mt-5">
+      </div> */}
+      {/* <div className="container mt-5">
         <div className="row">
           <div className="col-3">
             <h6 className="h6">Bestfrom Farmers</h6>
@@ -211,7 +360,7 @@ function HomePage() {
             </Card>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="container mt-5">
         <div className="row">
           <div className="col-6">
@@ -263,6 +412,25 @@ function HomePage() {
             <Button variant="light" className="fifthContainerButton">
               Button <BsChevronRight />
             </Button>
+          </div>
+        </div>
+        <div className="row mt-5">
+          <div className="col-3">
+            {/* {
+        post.map((m)=>{
+          <Card style={{ width: "15rem" }}>
+          <Card.Img variant="top" src={m?.image} />
+          <Card.Body>
+            <Card.Title className="title">{m?.title}</Card.Title>
+            <Card.Text className="description">
+              {m?.discription}
+            </Card.Text>
+            <Button variant="light">{m?.price} USD</Button>
+            <Button className="buyNow">Buy Now</Button>
+          </Card.Body>
+        </Card>
+        })
+       } */}
           </div>
         </div>
         <div className="row mt-5  ">
@@ -375,7 +543,7 @@ function HomePage() {
             <p className="paragraph2">Author 15.6.2020</p>
           </div>
           <div className="col-2 mt-5">
-            <span className=" mt-4 icons" style={{ "marginTop": "30px" }}>
+            <span className=" mt-4 icons" style={{ marginTop: "30px" }}>
               <BsSquare size={70} />
               <br />
             </span>
